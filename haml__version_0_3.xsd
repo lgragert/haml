@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:HAML.Namespace" targetNamespace="urn:HAML.Namespace" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="haml">
+    <!-- 
+    Description:
+    ____________
+    Root element of the document identifying it as an HAML message. 
+    Must contain the version of HAML that the modeled data in this document uses.
+             
+    Children: 
+    ____________ 
+    - patient-antibody-assessment (required, qty: 1 or more) 
+             
+    Attributes:
+    ____________ 
+    - version: Version of HAML the document follows. 
+    -->
+    <xs:complexType>
+    	<xs:sequence>
+    		<xs:element name="patient-antibody-assessment" minOccurs="1" maxOccurs="unbounded">
+    		<!-- 
+        Description:
+        ____________
+        The patient-antibody-assessment element defines the characteristics of the sample that was analyzed. 
+            
+        Children: 
+        ____________ 
+        - solid-phase-panel (optional, qty: 0 or more)
+        - cdc-panel         (optional, qty: 0 or more) UNDER CONSTRUCTION
+        - flow-panel        (optional, qty: 0 or more) UNDER CONSTRUCTION
+        - interpretation    (optional, qty: 0 or more) 
+        --> 
+    			<xs:complexType>
+    				<xs:sequence>
+    					<xs:element name="solid-phase-panel" minOccurs="0" maxOccurs="unbounded">
+              <!-- 
+              Description:
+              ____________
+              The solid phase panel contains information on the HLA antibody assay manufacturer, kit, and software
+              
+              Attributes:
+              ____________ 
+              - sampleID
+              - patientID
+              - reporting-centerID
+              - sample-type
+              - sample-manipulation
+              - sample-draw-datetime
+              - sample-test-datetime
+              - kit-manufacturer
+              - kit-version
+              - lot-number
+              - interpretation-software
+              - interpretation-software-version
+              - negative-bead-control
+              - mfi-threshold
+              - formula
+              - bead
+              -->                
+    						<xs:complexType>
+    							<xs:sequence>
+    								<xs:element name="bead" minOccurs="1" maxOccurs="unbounded">
+    									<xs:complexType mixed="true">
+    										<xs:attribute name="ID" type="xs:int"></xs:attribute>
+    										<xs:attribute name="HLA-allele-specificity" type="xs:string"></xs:attribute>
+    										<xs:attribute name="HLA-antigen-specificity" type="xs:string"></xs:attribute>
+    										<xs:attribute name="raw-MFI" type="xs:int"></xs:attribute>
+    										<xs:attribute name="adjusted-MFI" type="xs:int"></xs:attribute>
+    										<xs:attribute name="bead-interpretation">
+    											<xs:simpleType>
+    												<xs:restriction base="xs:string">
+    													<xs:enumeration value="Positive"></xs:enumeration>
+    													<xs:enumeration value="Negative"></xs:enumeration>
+    													<xs:enumeration value="Borderline"></xs:enumeration>
+    													<xs:enumeration value="Undetermined"></xs:enumeration>  
+    												</xs:restriction>
+    											</xs:simpleType>
+    										</xs:attribute>
+    										<xs:attribute name="bead-interpretation-manual-override">
+    											<xs:simpleType>
+    												<xs:restriction base="xs:string">
+    													<xs:pattern value="[YNyn]"></xs:pattern>
+    												</xs:restriction>
+    											</xs:simpleType>                                       
+    										</xs:attribute>
+    										<xs:attribute name="bead-interpretation-manual-override-reason">
+    											<xs:simpleType>
+    												<xs:restriction base="xs:string">
+    													<xs:enumeration value="CDC_Based"></xs:enumeration>
+    													<xs:enumeration value="Flow_Based"></xs:enumeration>
+    													<xs:enumeration value="Patient_HLA_Typing"></xs:enumeration>
+    													<xs:enumeration value="Clinical_Decision"></xs:enumeration>  
+    												</xs:restriction>
+    											</xs:simpleType>
+    										</xs:attribute>
+    									</xs:complexType>
+    								</xs:element>
+    							</xs:sequence>
+    							<xs:attribute name="kit-manufacturer">
+    								<xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="One_Lambda"></xs:enumeration>
+                        <xs:enumeration value="Immucor"></xs:enumeration>
+                        <xs:enumeration value="Other"></xs:enumeration>   
+                      </xs:restriction>
+                    </xs:simpleType>
+    							</xs:attribute>
+    							<xs:attribute name="kit-version" type="xs:string"></xs:attribute>
+    							<xs:attribute name="lot-number" type="xs:int"></xs:attribute>
+    							<xs:attribute name="interpretation-software">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="HLA_Fusion"></xs:enumeration>
+                        <xs:enumeration value="Match_IT"></xs:enumeration>
+                        <xs:enumeration value="Other"></xs:enumeration>   
+                      </xs:restriction>
+                    </xs:simpleType>    								
+    							</xs:attribute>
+    							<xs:attribute name="interpretation-software-version" type="xs:double"></xs:attribute>
+    							<xs:attribute name="negative-bead-control" type="xs:int"></xs:attribute>
+    							<xs:attribute name="mfi-threshold" type="xs:int"></xs:attribute>
+    							<xs:attribute name="formula" type="xs:string"></xs:attribute>
+    						</xs:complexType>
+    					</xs:element>
+    					<xs:element name="interpretation" minOccurs="0" maxOccurs="1">
+    						<xs:complexType>
+    							<xs:sequence>
+    								<xs:element name="acceptable-antigen-interpretation" minOccurs="1" maxOccurs="1">
+    									<xs:complexType>
+    										<xs:sequence>
+    											<xs:element name="acceptable-antigen" minOccurs="0" maxOccurs="unbounded">
+    												<xs:complexType mixed="true">
+    													<xs:attribute name="antigen" type="xs:string"></xs:attribute>
+    													<xs:attribute name="reason-code">
+    														<xs:simpleType>
+    															<xs:restriction base="xs:string">
+    																<xs:enumeration value="Solid_Phase_Panel_Negative"></xs:enumeration>
+    																<xs:enumeration value="CDC_Negative"></xs:enumeration>
+    																<xs:enumeration value="Flow_Negative"></xs:enumeration>
+    																<xs:enumeration value="Patient_HLA_Typing"></xs:enumeration>  
+    																<xs:enumeration value="Clinical_Decision"></xs:enumeration>  
+    															</xs:restriction>
+    														</xs:simpleType>    														
+    													</xs:attribute>
+    												</xs:complexType>
+    											</xs:element>
+    										</xs:sequence>
+    									</xs:complexType>
+    								</xs:element>
+    								<xs:element name="unacceptable-antigen-interpretation" minOccurs="1" maxOccurs="1">
+    									<xs:complexType>
+    										<xs:sequence>
+    											<xs:element name="unacceptable-antigen" minOccurs="0" maxOccurs="unbounded">
+    												<xs:complexType mixed="true">
+    													<xs:attribute name="antigen" type="xs:string"></xs:attribute>
+    													<xs:attribute name="reason-code">
+    														<xs:simpleType>
+    															<xs:restriction base="xs:string">
+    																<xs:enumeration value="Solid_Phase_Panel_Positive"></xs:enumeration>
+    																<xs:enumeration value="CDC_Positive"></xs:enumeration>
+    																<xs:enumeration value="Flow_Positive"></xs:enumeration>
+    																<xs:enumeration value="Epitope_Analysis"></xs:enumeration>
+    																<xs:enumeration value="Pregnancy"></xs:enumeration>
+    																<xs:enumeration value="Transfusion"></xs:enumeration>
+    																<xs:enumeration value="Retransplantation"></xs:enumeration>
+    																<xs:enumeration value="Presensitized_Other"></xs:enumeration>
+    																<xs:enumeration value="Clinical_Decision"></xs:enumeration>  
+    															</xs:restriction>
+    														</xs:simpleType>    														
+    													</xs:attribute>
+    												</xs:complexType>
+    											</xs:element>
+    										</xs:sequence>
+    									</xs:complexType>
+    								</xs:element>
+    							</xs:sequence>
+    							<xs:attribute name="interpretation-datetime">
+    								<xs:simpleType>
+    									<xs:restriction base="xs:string">
+    										<xs:pattern value="\d{4}-\d{2}-\d{2}(\s\d{2}:\d{2})?"></xs:pattern>
+    									</xs:restriction>
+    								</xs:simpleType>                                                                    
+    							</xs:attribute>
+    							<xs:attribute name="antigen-nomenclature">
+    								<xs:simpleType>
+    									<xs:restriction base="xs:string">
+    										<xs:enumeration value="WHO"></xs:enumeration>   
+    										<xs:enumeration value="UNOS"></xs:enumeration>
+    										<xs:enumeration value="EuroTransplant"></xs:enumeration>
+    										<xs:enumeration value="WMDA"></xs:enumeration>
+    										<xs:enumeration value="Other"></xs:enumeration>
+    									</xs:restriction>
+    								</xs:simpleType>
+    							</xs:attribute>
+    							<xs:attribute name="analyst-note" type="xs:string"></xs:attribute>
+    						</xs:complexType>
+    					</xs:element>
+    				</xs:sequence>
+    				<xs:attribute name="sampleID" type="xs:int"></xs:attribute>
+    				<xs:attribute name="patientID" type="xs:int"></xs:attribute>
+    				<xs:attribute name="reporting-centerID" type="xs:int"></xs:attribute>
+    				<xs:attribute name="sample-type">
+    					<xs:simpleType>
+    						<xs:restriction base="xs:string">
+    							<xs:enumeration value="Serum"></xs:enumeration>   
+    							<xs:enumeration value="Plasma"></xs:enumeration>   
+    						</xs:restriction>
+    					</xs:simpleType>
+    				</xs:attribute>
+    				<xs:attribute name="sample-manipulation">
+    					<xs:simpleType>
+    						<xs:restriction base="xs:string">
+    							<xs:enumeration value="Heat_Inactivation"></xs:enumeration>   
+    							<xs:enumeration value="EDTA"></xs:enumeration>
+    							<xs:enumeration value="Dilution"></xs:enumeration>
+    							<xs:enumeration value="DTT"></xs:enumeration>
+    							<xs:enumeration value="Unmanipulated"></xs:enumeration>
+    						</xs:restriction>
+    					</xs:simpleType>
+    				</xs:attribute>
+    				<xs:attribute name="sample-draw-datetime">
+    					<xs:simpleType>
+    						<xs:restriction base="xs:string">
+    							<xs:pattern value="\d{4}-\d{2}-\d{2}(\s\d{2}:\d{2})?"></xs:pattern>
+    						</xs:restriction>
+    					</xs:simpleType>
+    				</xs:attribute>
+    				<xs:attribute name="sample-test-datetime">
+    					<xs:simpleType>
+    						<xs:restriction base="xs:string">
+    							<xs:pattern value="\d{4}-\d{2}-\d{2}(\s\d{2}:\d{2})?"></xs:pattern>
+    						</xs:restriction>
+    					</xs:simpleType>                                            
+    				</xs:attribute>
+    			</xs:complexType>
+    		</xs:element>
+    	</xs:sequence>
+    	<xs:attribute name="version" type="xs:double"></xs:attribute>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+ 

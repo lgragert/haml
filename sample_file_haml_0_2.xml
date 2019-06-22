@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<haml xmlns="urn:HAML.Namespace" xsi:schemaLocation="urn:HAML.Namespace schema.xsd" version="-49731099999999.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <patient-antibody-assessment sampleID="string" patientID="-366" reporting-centerID="string" sample-type="serum" sample-manipulation="Unmanipulated" sample-draw-datetime="9962-80-07" sample-test-datetime="6615-62-11">
+    <solid-phase-panel kit-manufacturer="other" kit-version="string" lot-number="string" negative-bead-control="-2909" mfi-threshold="4585">
+      <bead />
+      <bead />
+      <bead />
+    </solid-phase-panel>
+    <solid-phase-panel kit-manufacturer="Immucor" kit-version="string" lot-number="string" interpretation-software="MATCH IT!" interpretation-software-version="-28749299999999.8" mfi-threshold="329" formula="string">
+      <bead />
+      <bead />
+      <bead />
+      <bead />
+      <bead />
+    </solid-phase-panel>
+    <interpretation antigen-nomenclature="EuroTransplant" analyst-note="string">
+      <acceptable-antigen-interpretation>
+        <acceptable-antigen />
+        <acceptable-antigen />
+        <acceptable-antigen />
+        <acceptable-antigen />
+      </acceptable-antigen-interpretation>
+      <unacceptable-antigen-interpretation>
+        <unacceptable-antigen />
+      </unacceptable-antigen-interpretation>
+    </interpretation>
+  </patient-antibody-assessment>
+  <patient-antibody-assessment sampleID="string" patientID="-2048" reporting-centerID="string" sample-type="plasma" sample-manipulation="DTT" sample-draw-datetime="2237-33-00 85:09" sample-test-datetime="9562-19-53\dd:98">
+    <solid-phase-panel kit-manufacturer="OneLambda" interpretation-software="MATCH IT!" interpretation-software-version="-10922199999999.8" formula="string">
+      <bead />
+      <bead />
+      <bead />
+      <bead />
+    </solid-phase-panel>
+    <solid-phase-panel kit-manufacturer="Immucor" kit-version="string" negative-bead-control="-3363" mfi-threshold="-690">
+      <bead />
+      <bead />
+      <bead />
+      <bead />
+    </solid-phase-panel>
+    <solid-phase-panel kit-manufacturer="other" lot-number="string" interpretation-software="HLA Fusion" negative-bead-control="3788">
+      <bead />
+    </solid-phase-panel>
+    <solid-phase-panel kit-version="string" negative-bead-control="2637" mfi-threshold="-1056">
+      <bead />
+      <bead />
+      <bead />
+    </solid-phase-panel>
+    <solid-phase-panel kit-manufacturer="Immucor" lot-number="string" negative-bead-control="2069" mfi-threshold="818" formula="string">
+      <bead />
+      <bead />
+    </solid-phase-panel>
+    <interpretation antigen-nomenclature="WMDA">
+      <acceptable-antigen-interpretation>
+        <acceptable-antigen />
+        <acceptable-antigen />
+        <acceptable-antigen />
+      </acceptable-antigen-interpretation>
+      <unacceptable-antigen-interpretation>
+        <unacceptable-antigen />
+        <unacceptable-antigen />
+        <unacceptable-antigen />
+        <unacceptable-antigen />
+      </unacceptable-antigen-interpretation>
+    </interpretation>
+  </patient-antibody-assessment>
+  <patient-antibody-assessment sampleID="string" patientID="-2680" reporting-centerID="string" sample-type="serum" sample-manipulation="Dilution" sample-draw-datetime="2503-65-86 15:32" sample-test-datetime="6871-38-05\dd:14">
+    <solid-phase-panel interpretation-software="other" interpretation-software-version="-1854299999999.77" negative-bead-control="-1942">
+      <bead />
+      <bead />
+    </solid-phase-panel>
+    <solid-phase-panel lot-number="string" interpretation-software="other" interpretation-software-version="17647100000000.2" negative-bead-control="3044" mfi-threshold="621" formula="string">
+      <bead />
+      <bead />
+      <bead />
+      <bead />
+    </solid-phase-panel>
+    <interpretation interpretation-datetime="6594-53-77&#x9;67:50">
+      <acceptable-antigen-interpretation>
+        <acceptable-antigen />
+        <acceptable-antigen />
+        <acceptable-antigen />
+        <acceptable-antigen />
+      </acceptable-antigen-interpretation>
+      <unacceptable-antigen-interpretation>
+        <unacceptable-antigen />
+        <unacceptable-antigen />
+        <unacceptable-antigen />
+        <unacceptable-antigen />
+      </unacceptable-antigen-interpretation>
+    </interpretation>
+  </patient-antibody-assessment>
+  <patient-antibody-assessment sampleID="string" patientID="-2868" reporting-centerID="string" sample-type="serum" sample-manipulation="EDTA" sample-draw-datetime="2990-06-84" sample-test-datetime="5941-16-47">
+    <solid-phase-panel kit-version="string" lot-number="string" interpretation-software-version="-18665099999999.8">
+      <bead />
+      <bead />
+      <bead />
+      <bead />
+    </solid-phase-panel>
+    <solid-phase-panel kit-manufacturer="OneLambda" lot-number="string">
+      <bead />
+      <bead />
+      <bead />
+    </solid-phase-panel>
+    <solid-phase-panel lot-number="string" interpretation-software="MATCH IT!" mfi-threshold="1069" formula="string">
+      <bead />
+      <bead />
+      <bead />
+      <bead />
+    </solid-phase-panel>
+    <solid-phase-panel kit-manufacturer="Immucor" kit-version="string" lot-number="string" interpretation-software="HLA Fusion" formula="string">
+      <bead />
+      <bead />
+      <bead />
+      <bead />
+    </solid-phase-panel>
+    <solid-phase-panel kit-manufacturer="OneLambda" kit-version="string" interpretation-software="other" interpretation-software-version="-30422499999999.8" negative-bead-control="-3790" mfi-threshold="-1389">
+      <bead />
+      <bead />
+      <bead />
+      <bead />
+    </solid-phase-panel>
+    <interpretation antigen-nomenclature="Other" analyst-note="string">
+      <acceptable-antigen-interpretation>
+        <acceptable-antigen />
+        <acceptable-antigen />
+      </acceptable-antigen-interpretation>
+      <unacceptable-antigen-interpretation>
+        <unacceptable-antigen />
+      </unacceptable-antigen-interpretation>
+    </interpretation>
+  </patient-antibody-assessment>
+  <patient-antibody-assessment sampleID="string" patientID="-1435" reporting-centerID="string" sample-type="plasma" sample-manipulation="Dilution" sample-draw-datetime="1105-56-61" sample-test-datetime="0818-57-98">
+    <solid-phase-panel lot-number="string" interpretation-software="HLA Fusion">
+      <bead />
+      <bead />
+      <bead />
+      <bead />
+    </solid-phase-panel>
+    <interpretation>
+      <acceptable-antigen-interpretation>
+        <acceptable-antigen />
+        <acceptable-antigen />
+        <acceptable-antigen />
+        <acceptable-antigen />
+      </acceptable-antigen-interpretation>
+      <unacceptable-antigen-interpretation>
+        <unacceptable-antigen />
+        <unacceptable-antigen />
+      </unacceptable-antigen-interpretation>
+    </interpretation>
+  </patient-antibody-assessment>
+</haml>
