@@ -1,0 +1,93 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:HAML.Namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="haml">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="patient-antibody-assessment">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="solid-phase-panel" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="bead" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute type="xs:byte" name="ID" use="optional"/>
+                            <xs:attribute type="xs:string" name="HLA-allele-specificity" use="optional"/>
+                            <xs:attribute type="xs:string" name="HLA-antigen-specificity" use="optional"/>
+                            <xs:attribute type="xs:short" name="raw-MFI" use="optional"/>
+                            <xs:attribute type="xs:short" name="adjusted-MFI" use="optional"/>
+                            <xs:attribute type="xs:string" name="bead-interpretation" use="optional"/>
+                            <xs:attribute type="xs:string" name="bead-interpretation-manual-override" use="optional"/>
+                            <xs:attribute type="xs:string" name="bead-interpretation-manual-override-reason" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="kit-manufacturer" use="optional"/>
+                  <xs:attribute type="xs:string" name="kit-version" use="optional"/>
+                  <xs:attribute type="xs:short" name="lot-number" use="optional"/>
+                  <xs:attribute type="xs:string" name="interpretation-software" use="optional"/>
+                  <xs:attribute type="xs:float" name="interpretation-software-version" use="optional"/>
+                  <xs:attribute type="xs:byte" name="negative-bead-control" use="optional"/>
+                  <xs:attribute type="xs:short" name="mfi-threshold" use="optional"/>
+                  <xs:attribute type="xs:string" name="formula" use="optional"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="interpretation">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="acceptable-antigen-interpretation">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="acceptable-antigen">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:string" name="antigen"/>
+                                  <xs:attribute type="xs:string" name="reason-code"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="unacceptable-antigen-interpretation">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="unacceptable-antigen" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute type="xs:string" name="antigen" use="optional"/>
+                                  <xs:attribute type="xs:string" name="reason-code" use="optional"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="interpretation-datetime"/>
+                  <xs:attribute type="xs:string" name="antigen-nomenclature"/>
+                  <xs:attribute type="xs:string" name="analyst-note"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:short" name="sampleID"/>
+            <xs:attribute type="xs:short" name="patientID"/>
+            <xs:attribute type="xs:byte" name="reporting-centerID"/>
+            <xs:attribute type="xs:string" name="sample-type"/>
+            <xs:attribute type="xs:string" name="sample-manipulation"/>
+            <xs:attribute type="xs:string" name="sample-draw-datetime"/>
+            <xs:attribute type="xs:string" name="sample-test-datetime"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute type="xs:float" name="version"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

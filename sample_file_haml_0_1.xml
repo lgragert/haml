@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<haml version="0.1" xmlns="urn:HAML.Namespace"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="urn:HAML.Namespace haml.xsd">
+  <patient-antibody-assessment sampleID="1234" patientID="1234" reporting-centerID="123" sample-type="Serum|Plasma" sample-manipulation="Heat-Inactivation|EDTA|Dilution|DTT" sample-draw-datetime="2019-05-30 10:42" sample-test-datetime ="2019-05-31 14:42">
+    
+    <solid-phase-panel kit-manufacturer="One_Lambda|Immucor|Other" kit-version="LS1A04" lot-number="12345" interpretation-software="Fusion|MatchIt" interpretation-software-version="4.1" negative-bead-control="100" mfi-threshold="500" formula="baseline">
+        <bead ID="1" HLA-allele-specificity="A*02:01" HLA-antigen-specificity="A2" raw-MFI="20000" adjusted-MFI="19500" bead-interpretation="Positive|Negative|Borderline|Undetermined" bead-interpretation-manual-override="yes|no" bead-interpretation-manual-override-reason="CDC-positive|flow-positive|self-antigen"> </bead >
+        <bead ID="2" HLA-allele-specificity="A*02:02" HLA-antigen-specificity="A2" raw-MFI="15000" adjusted-MFI="14500" bead-interpretation="Positive|Negative|Borderline|Undetermined" bead-interpretation-manual-override="yes|no" bead-interpretation-manual-override-reason="CDC-positive|flow-positive|self-antigen"> </bead >
+    </solid-phase-panel>
+    <solid-phase-panel kit-manufacturer="One_Lambda|Immucor|Other" kit-version="LS2A01" lot-number="12345" interpretation-software="Fusion|MatchIt" interpretation-software-version="4.1" negative-bead-control="100" mfi-threshold="500" formula="baseline">
+        <bead ID="1" HLA-allele-specificity="DQA1*05:01~DQB1*02:01" HLA-antigen-specificity="DQ2" raw-MFI="20000" adjusted-MFI="19500" bead-interpretation="Positive|Negative|Borderline|Indeterminate" bead-interpretation-manual-override="yes|no" bead-interpretation-manual-override-reason="CDC-positive|flow-positive|self-antigen"> </bead >
+        <bead ID="2" HLA-allele-specificity="DQA1*02:01~DQB1*02:01" HLA-antigen-specificity="DQ2" raw-MFI="15000" adjusted-MFI="14500" bead-interpretation="Positive|Negative|Borderline|Indeterminate" bead-interpretation-manual-override="yes|no" bead-interpretation-manual-override-reason="CDC-positive|flow-positive|self-antigen"> </bead >
+    </solid-phase-panel>
+
+    <interpretation interpretation-datetime="2019-05-31 11:43" antigen-nomenclature="UNOS|EuroTransplant|WHO|WMDA" analyst-note="">
+        <acceptable-antigen-interpretation>
+            <acceptable-antigen antigen="A1" reason-code="solid-phase-panel-negative|CDC-negative|flow-negative|epitope-analysis|patient-hla-typing|clinical-decision"></acceptable-antigen>
+        </acceptable-antigen-interpretation>
+        <unacceptable-antigen-interpretation >
+            <unacceptable-antigen antigen="A2" reason-code="solid-phase-panel-positive|CDC-positive|flow-positive|epitope-analysis|pregnancy|transfusion|retransplantation|presensitized-other|clinical-decision" > </unacceptable-antigen> 
+            <unacceptable-antigen antigen="A3" reason-code="solid-phase-panel-positive|CDC-positive|flow-positive|epitope-analysis|pregnancy|transfusion|retransplantation|presensitized-other|clinical-decision" > </unacceptable-antigen>
+        </unacceptable-antigen-interpretation>
+    </interpretation>
+
+  </patient-antibody-assessment>
+</haml>
