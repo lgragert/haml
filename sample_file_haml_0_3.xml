@@ -4,22 +4,24 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="urn:HAML.Namespace haml.xsd">
   <patient-antibody-assessment sampleID="1234" patientID="1234" reporting-centerID="123" sample-type="Serum" sample-manipulation="DTT" sample-draw-datetime="2019-05-30 10:42" sample-test-datetime ="2019-05-31 14:42">
     
-    <solid-phase-panel kit-manufacturer="One_Lambda" kit-version="LS1A04" lot-number="12345" interpretation-software="HLA_Fusion" interpretation-software-version="4.1" negative-bead-control="100" mfi-threshold="500" formula="baseline">
-        <bead ID="1" HLA-allele-specificity="A*02:01" HLA-antigen-specificity="A2" raw-MFI="20000" adjusted-MFI="19500" bead-interpretation="Positive" bead-interpretation-manual-override="Y" bead-interpretation-manual-override-reason="Flow_Based"></bead>
-        <bead ID="2" HLA-allele-specificity="A*02:02" HLA-antigen-specificity="A2" raw-MFI="15000" adjusted-MFI="14500" bead-interpretation="Positive" bead-interpretation-manual-override="Y" bead-interpretation-manual-override-reason="CDC_Based"></bead>
+    <solid-phase-panel kit-manufacturer="One_Lambda" kit-version="LS1A04" lot-number="12345" interpretation-software="HLA_Fusion" interpretation-software-version="4.1" negative-bead-control="100" mfi-threshold="1000" formula="baseline">
+        <bead ID="1" HLA-allele-specificity="A*02:01" HLA-antigen-specificity="A2" raw-MFI="20000" adjusted-MFI="19500" bead-interpretation="Positive" bead-interpretation-manual-override="N"></bead>
+        <bead ID="2" HLA-allele-specificity="A*02:02" HLA-antigen-specificity="A2" raw-MFI="15000" adjusted-MFI="14500" bead-interpretation="Positive" bead-interpretation-manual-override="N"></bead>
+        <bead ID="3" HLA-allele-specificity="A*03:01" HLA-antigen-specificity="A3" raw-MFI="1200" adjusted-MFI="900" bead-interpretation="Positive" bead-interpretation-manual-override="Y" bead-interpretation-manual-override-reason="CDC_Based"></bead>
     </solid-phase-panel>
     <solid-phase-panel kit-manufacturer="Immucor" kit-version="LS2A01" lot-number="12345" interpretation-software="Match_IT" interpretation-software-version="4.1" negative-bead-control="100" mfi-threshold="500" formula="baseline">
-        <bead ID="1" HLA-allele-specificity="DQA1*05:01~DQB1*02:01" HLA-antigen-specificity="DQ2" raw-MFI="20000" adjusted-MFI="19500" bead-interpretation="Negative" bead-interpretation-manual-override="N" bead-interpretation-manual-override-reason="Patient_HLA_Typing"></bead >
-        <bead ID="2" HLA-allele-specificity="DQA1*02:01~DQB1*02:01" HLA-antigen-specificity="DQ2" raw-MFI="15000" adjusted-MFI="14500" bead-interpretation="Borderline" bead-interpretation-manual-override="N" bead-interpretation-manual-override-reason="CDC_Based"></bead >
+        <bead ID="1" HLA-allele-specificity="DQA1*05:01~DQB1*02:01" HLA-antigen-specificity="DQ2" raw-MFI="0" adjusted-MFI="0" bead-interpretation="Negative" bead-interpretation-manual-override="N"></bead>
+        <bead ID="2" HLA-allele-specificity="DQA1*02:01~DQB1*02:01" HLA-antigen-specificity="DQ2" raw-MFI="600" adjusted-MFI="500" bead-interpretation="Borderline" bead-interpretation-manual-override="N" bead-interpretation-manual-override-reason="Patient_HLA_Typing"></bead>
     </solid-phase-panel>
 
     <interpretation interpretation-datetime="2019-05-31 11:43" antigen-nomenclature="UNOS" analyst-note="">
         <acceptable-antigen-interpretation>
             <acceptable-antigen antigen="A1" reason-code="Solid_Phase_Panel_Negative"></acceptable-antigen>
+            <acceptable-antigen antigen="DQ2" reason-code="Patient_HLA_Typing"></acceptable-antigen>
         </acceptable-antigen-interpretation>
         <unacceptable-antigen-interpretation >
-            <unacceptable-antigen antigen="A2" reason-code="Flow_Positive"></unacceptable-antigen> 
-            <unacceptable-antigen antigen="A3" reason-code="Solid_Phase_Panel_Positive"></unacceptable-antigen>
+            <unacceptable-antigen antigen="A2" reason-code="Solid_Phase_Panel_Positive"></unacceptable-antigen> 
+            <unacceptable-antigen antigen="A3" reason-code="Flow_Positive"></unacceptable-antigen>
         </unacceptable-antigen-interpretation>
     </interpretation>
 
