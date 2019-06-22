@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:HAML.Namespace" targetNamespace="urn:HAML.Namespace" elementFormDefault="qualified" attributeFormDefault="unqualified">
+         <!-- XML Schema Generated from XML Document on Fri May 31 2019 11:59:48 GMT-0500 (Central Daylight Time) -->
+         <!-- with XmlGrid.net Free Online Service http://xmlgrid.net -->
+         <xs:element name="haml">
+               <xs:complexType>
+                     <xs:sequence>
+                           <xs:element name="patient-antibody-assessment" minOccurs="1" maxOccurs="unbounded">
+                                 <xs:complexType>
+                                       <xs:sequence>
+                                             <xs:element name="solid-phase-panel" minOccurs="0" maxOccurs="unbounded">
+                                                   <xs:complexType>
+                                                         <xs:sequence>
+                                                               <xs:element name="bead" minOccurs="1" maxOccurs="unbounded">
+                                                                     <xs:complexType mixed="true">
+                                                                           <xs:attribute name="ID" type="xs:int"></xs:attribute>
+                                                                           <xs:attribute name="HLA-allele-specificity" type="xs:string"></xs:attribute>
+                                                                           <xs:attribute name="HLA-antigen-specificity" type="xs:string"></xs:attribute>
+                                                                           <xs:attribute name="raw-MFI" type="xs:int"></xs:attribute>
+                                                                           <xs:attribute name="adjusted-MFI" type="xs:int"></xs:attribute>
+                                                                           <xs:attribute name="bead-interpretation" type="xs:string"></xs:attribute>
+                                                                           <xs:attribute name="bead-interpretation-manual-override" type="xs:string"></xs:attribute>
+                                                                           <xs:attribute name="bead-interpretation-manual-override-reason" type="xs:string"></xs:attribute>
+                                                                     </xs:complexType>
+                                                               </xs:element>
+                                                         </xs:sequence>
+                                                         <xs:attribute name="kit-manufacturer" type="xs:string"></xs:attribute>
+                                                         <xs:attribute name="kit-version" type="xs:string"></xs:attribute>
+                                                         <xs:attribute name="lot-number" type="xs:int"></xs:attribute>
+                                                         <xs:attribute name="interpretation-software" type="xs:string"></xs:attribute>
+                                                         <xs:attribute name="interpretation-software-version" type="xs:double"></xs:attribute>
+                                                         <xs:attribute name="negative-bead-control" type="xs:int"></xs:attribute>
+                                                         <xs:attribute name="mfi-threshold" type="xs:int"></xs:attribute>
+                                                         <xs:attribute name="formula" type="xs:string"></xs:attribute>
+                                                   </xs:complexType>
+                                             </xs:element>
+                                             <xs:element name="interpretation" minOccurs="0" maxOccurs="1">
+                                                   <xs:complexType>
+                                                         <xs:sequence>
+                                                               <xs:element name="acceptable-antigen-interpretation" minOccurs="1" maxOccurs="1">
+                                                                     <xs:complexType>
+                                                                           <xs:sequence>
+                                                                                 <xs:element name="acceptable-antigen" minOccurs="0" maxOccurs="unbounded">
+                                                                                       <xs:complexType mixed="true">
+                                                                                             <xs:attribute name="antigen" type="xs:string"></xs:attribute>
+                                                                                             <xs:attribute name="reason-code" type="xs:string"></xs:attribute>
+                                                                                       </xs:complexType>
+                                                                                 </xs:element>
+                                                                           </xs:sequence>
+                                                                     </xs:complexType>
+                                                               </xs:element>
+                                                               <xs:element name="unacceptable-antigen-interpretation" minOccurs="1" maxOccurs="1">
+                                                                     <xs:complexType>
+                                                                           <xs:sequence>
+                                                                                 <xs:element name="unacceptable-antigen" minOccurs="0" maxOccurs="unbounded">
+                                                                                       <xs:complexType mixed="true">
+                                                                                             <xs:attribute name="antigen" type="xs:string"></xs:attribute>
+                                                                                             <xs:attribute name="reason-code" type="xs:string"></xs:attribute>
+                                                                                       </xs:complexType>
+                                                                                 </xs:element>
+                                                                           </xs:sequence>
+                                                                     </xs:complexType>
+                                                               </xs:element>
+                                                         </xs:sequence>
+                                                         <xs:attribute name="interpretation-datetime">
+                                                            <xs:simpleType>
+                                                                  <xs:restriction base="xs:string">
+                                                                        <xs:pattern value="\d{4}-\d{2}-\d{2}(\s\d{2}:\d{2})?"></xs:pattern>
+                                                                  </xs:restriction>
+                                                            </xs:simpleType>                                                                    
+                                                         </xs:attribute>
+                                                         <xs:attribute name="antigen-nomenclature" type="xs:string"></xs:attribute>
+                                                         <xs:attribute name="analyst-note" type="xs:string"></xs:attribute>
+                                                   </xs:complexType>
+                                             </xs:element>
+                                       </xs:sequence>
+                                       <xs:attribute name="sampleID" type="xs:int"></xs:attribute>
+                                       <xs:attribute name="patientID" type="xs:int"></xs:attribute>
+                                       <xs:attribute name="reporting-centerID" type="xs:int"></xs:attribute>
+                                       <xs:attribute name="sample-type">
+                                             <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                      <xs:enumeration value="Serum"></xs:enumeration>   
+                                                      <xs:enumeration value="Plasma"></xs:enumeration>   
+                                                </xs:restriction>
+                                             </xs:simpleType>
+                                       </xs:attribute>
+                                       <xs:attribute name="sample-manipulation">
+                                             <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                      <xs:enumeration value="Heat-Inactivation"></xs:enumeration>   
+                                                      <xs:enumeration value="EDTA"></xs:enumeration>
+                                                      <xs:enumeration value="Dilution"></xs:enumeration>
+                                                      <xs:enumeration value="DTT"></xs:enumeration>
+                                                      <xs:enumeration value="Unmanipulated"></xs:enumeration>
+                                                </xs:restriction>
+                                             </xs:simpleType>
+                                       </xs:attribute>
+                                       <xs:attribute name="sample-draw-datetime">
+                                             <xs:simpleType>
+                                                   <xs:restriction base="xs:string">
+                                                         <xs:pattern value="\d{4}-\d{2}-\d{2}(\s\d{2}:\d{2})?"></xs:pattern>
+                                                   </xs:restriction>
+                                             </xs:simpleType>
+                                       </xs:attribute>
+                                       <xs:attribute name="sample-test-datetime">
+                                              <xs:simpleType>
+                                                   <xs:restriction base="xs:string">
+                                                         <xs:pattern value="\d{4}-\d{2}-\d{2}(\s\d{2}:\d{2})?"></xs:pattern>
+                                                   </xs:restriction>
+                                             </xs:simpleType>                                            
+                                       </xs:attribute>
+                                 </xs:complexType>
+                           </xs:element>
+                     </xs:sequence>
+                     <xs:attribute name="version" type="xs:double"></xs:attribute>
+               </xs:complexType>
+         </xs:element>
+   </xs:schema>
+ 
